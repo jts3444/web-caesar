@@ -41,10 +41,8 @@ def index():
 
 @app.route("/", methods=['POST'])
 def encrypt():
-    resp = ""
-    for field in request.form.keys():
-        rot = int(field)
-        text = request.form[field]
+        rot = int(request.form['rot'])
+        text = request.form['text']
     new_text = rotate_string(text, rot)
     encrypt_resp = "<h1>{key}</h1>".format(key=new_text)
     return encrypt_resp
